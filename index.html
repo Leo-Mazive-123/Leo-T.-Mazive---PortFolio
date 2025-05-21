@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Leo T. Mazive | Portfolio</title>
+  <meta name="description" content="Leo T. Mazive's personal portfolio. Showcasing web development and Python projects.">
+  <style>
+    :root {
+      --bg: #f8f9fa;
+      --text: #333;
+      --primary: #2575fc;
+      --accent: #6a11cb;
+      --highlight: #ffd700;
+      --card-bg: #f0f0f0;
+      --footer-bg: #e0e0e0;
+    }
+
+    body.dark-mode {
+      --bg: #121212;
+      --text: #f1f1f1;
+      --primary: #00bfff;
+      --accent: #9932cc;
+      --highlight: #ffd700;
+      --card-bg: #1e1e1e;
+      --footer-bg: #1a1a1a;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      color: var(--text);
+      background-color: var(--bg);
+      line-height: 1.6;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1100px;
+      margin: auto;
+      padding: 40px 0;
+    }
+
+    nav {
+      background-color: var(--bg);
+      padding: 1rem 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    nav .nav-links a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    nav .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    #dark-mode-toggle {
+      padding: 6px 12px;
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+    #dark-mode-toggle:hover {
+      background: var(--accent);
+    }
+
+    header {
+      background: linear-gradient(to right, var(--accent), var(--primary));
+      color: white;
+      padding: 80px 0;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+
+    .highlight {
+      color: var(--highlight);
+    }
+
+    header p {
+      font-size: 1.2rem;
+    }
+
+    section h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: var(--text);
+      text-align: center;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .project-card {
+      background: var(--card-bg);
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease, background-color 0.3s;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeInUp 0.6s forwards;
+    }
+
+    .project-card:nth-child(1) { animation-delay: 0.1s; }
+    .project-card:nth-child(2) { animation-delay: 0.3s; }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .project-card h3 {
+      margin-bottom: 10px;
+      color: var(--primary);
+    }
+
+    .project-card a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .project-card a:hover {
+      text-decoration: underline;
+    }
+
+    .skills-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      list-style: none;
+      padding: 0;
+      margin-top: 20px;
+    }
+
+    .skills-list li {
+      background-color: var(--card-bg);
+      margin: 10px;
+      padding: 10px 20px;
+      border-radius: 20px;
+      font-weight: bold;
+      color: var(--text);
+    }
+
+    .social-links {
+      text-align: center;
+    }
+
+    .social-links a {
+      margin: 0 10px;
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .social-links a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px 0;
+      background-color: var(--footer-bg);
+      font-size: 0.9rem;
+      color: var(--text);
+    }
+
+    #top-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 50%;
+      cursor: pointer;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    }
+
+    #top-btn:hover {
+      background: var(--accent);
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <button id="dark-mode-toggle">Toggle Dark Mode</button>
+  </nav>
+
+  <header>
+    <div class="container">
+      <h1>Hello, I'm <span class="highlight">Leo T. Mazive</span></h1>
+      <p>A Passionate Web Developer</p>
+    </div>
+  </header>
+
+  <section id="about">
+    <div class="container">
+      <h2>About Me</h2>
+      <p>
+        Hi, I'm Leo T. Mazive. I enjoy creating websites and building useful tools with Python. I like solving problems and making things that help people work faster and better.
+      </p>
+      <p>
+        I have made a payslip generator that helps companies send payslips automatically, and a job scraper that collects the latest job posts from a website. I build my projects to be simple, helpful, and easy to use.
+      </p>
+      <p>
+        I'm always learning new skills and looking for ways to improve. My goal is to grow as a developer and create things that make a real difference.
+      </p>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="container">
+      <h2>Skills</h2>
+      <ul class="skills-list">
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JavaScript</li>
+        <li>Python</li>
+        <li>Selenium</li>
+        <li>pandas</li>
+        <li>Git & GitHub</li>
+        <li>Responsive Design</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="container">
+      <h2>Projects</h2>
+      <div class="projects-grid">
+        <div class="project-card">
+          <h3>Payslip Generator</h3>
+          <p>Automated tool that reads employee data from Excel and generates personalized PDF payslips, then emails them to each employee. Built with Python using <code>pandas</code>, <code>reportlab</code>, and <code>smtplib</code>.</p>
+          <a href="https://github.com/Leo-Mazive-123/Payslip-Generator.git" target="_blank">View Project</a>
+        </div>
+
+        <div class="project-card">
+          <h3>Job Scraper</h3>
+          <p>Python-based web scraper that extracts the 10 most recent job listings from <a href="https://vacancymail.co.zw/jobs/" target="_blank">vacancymail.co.zw</a>. Saves data to CSV and automates task scheduling with <code>Selenium</code>, <code>pandas</code>, and <code>schedule</code>.</p>
+          <a href="https://github.com/Leo-Mazive-123/Job-Scraper.git" target="_blank">View Project</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <h2>Contact</h2>
+      <p style="text-align: center;">Reach out via email or connect on social media.</p>
+      <div class="social-links">
+        <a href="mailto:leomazive@gmail.com">Email</a>
+        <a href="https://github.com/Leo-Mazive-123" target="_blank">GitHub</a>
+        <a href="tel:+263773950814">Phone</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Leo T. Mazive.</p>
+  </footer>
+
+  <button id="top-btn" onclick="window.scrollTo({ top: 0, behavior: 'smooth' });">&#8679;</button>
+
+  <script>
+    const toggleBtn = document.getElementById('dark-mode-toggle');
+    toggleBtn.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+    });
+  </script>
+
+</body>
+</html>
