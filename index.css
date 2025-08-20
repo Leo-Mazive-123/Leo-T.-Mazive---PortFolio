@@ -235,6 +235,12 @@ nav .nav-links a:hover {
 }
 
 
+/* Dark mode */
+body.dark #hamburger i {
+  color: white;
+}
+
+
 
     #dark-mode-toggle {
       padding: 6px 12px;
