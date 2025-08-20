@@ -5,304 +5,268 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Leo T. Mazive | Portfolio</title>
   <meta name="description" content="Leo T. Mazive's personal portfolio. Showcasing web development and Python projects.">
+  <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+/>
   <style>
-    :root {
-      --bg: #f8f9fa;
-      --text: #333;
-      --primary: #2575fc;
-      --accent: #6a11cb;
-      --highlight: #ffd700;
-      --card-bg: #f0f0f0;
-      --footer-bg: #e0e0e0;
-    }
-
-    body.dark-mode {
-      --bg: #121212;
-      --text: #f1f1f1;
-      --primary: #00bfff;
-      --accent: #9932cc;
-      --highlight: #ffd700;
-      --card-bg: #1e1e1e;
-      --footer-bg: #1a1a1a;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      color: var(--text);
-      background-color: var(--bg);
-      line-height: 1.6;
-      transition: background-color 0.3s, color 0.3s;
-    }
-
-    .container {
-      width: 90%;
-      max-width: 1100px;
-      margin: auto;
-      padding: 40px 0;
-    }
-
-    nav {
-      background-color: var(--bg);
-      padding: 1rem 5%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    }
-
-    nav .nav-links a {
-      margin: 0 15px;
-      text-decoration: none;
-      color: var(--text);
-      font-weight: 600;
-    }
-
-    nav .nav-links a:hover {
-      color: var(--primary);
-    }
-
-    #dark-mode-toggle {
-      padding: 6px 12px;
-      background: var(--primary);
-      color: #fff;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      font-weight: bold;
-      transition: background 0.3s;
-    }
-
-    #dark-mode-toggle:hover {
-      background: var(--accent);
-    }
-
-    header {
-      background: linear-gradient(to right, var(--accent), var(--primary));
-      color: white;
-      padding: 80px 0;
-      text-align: center;
-    }
-
-    header h1 {
-      font-size: 2.5rem;
-      margin-bottom: 10px;
-    }
-
-    .highlight {
-      color: var(--highlight);
-    }
-
-    header p {
-      font-size: 1.2rem;
-    }
-
-    section h2 {
-      font-size: 2rem;
-      margin-bottom: 20px;
-      color: var(--text);
-      text-align: center;
-    }
-
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-    }
-
-    .project-card {
-      background: var(--card-bg);
-      border-radius: 10px;
-      padding: 20px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease, background-color 0.3s;
-      opacity: 0;
-      transform: translateY(30px);
-      animation: fadeInUp 0.6s forwards;
-    }
-
-    .project-card:nth-child(1) { animation-delay: 0.1s; }
-    .project-card:nth-child(2) { animation-delay: 0.3s; }
-
-    @keyframes fadeInUp {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .project-card h3 {
-      margin-bottom: 10px;
-      color: var(--primary);
-    }
-
-    .project-card a {
-      color: var(--accent);
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    .project-card a:hover {
-      text-decoration: underline;
-    }
-
-    .skills-list {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      list-style: none;
-      padding: 0;
-      margin-top: 20px;
-    }
-
-    .skills-list li {
-      background-color: var(--card-bg);
-      margin: 10px;
-      padding: 10px 20px;
-      border-radius: 20px;
-      font-weight: bold;
-      color: var(--text);
-    }
-
-    .social-links {
-      text-align: center;
-    }
-
-    .social-links a {
-      margin: 0 10px;
-      color: var(--primary);
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    .social-links a:hover {
-      text-decoration: underline;
-    }
-
-    footer {
-      text-align: center;
-      padding: 20px 0;
-      background-color: var(--footer-bg);
-      font-size: 0.9rem;
-      color: var(--text);
-    }
-
-    #top-btn {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: var(--primary);
-      color: #fff;
-      border: none;
-      padding: 10px 15px;
-      border-radius: 50%;
-      cursor: pointer;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
-    }
-
-    #top-btn:hover {
-      background: var(--accent);
-    }
+    
   </style>
 </head>
 <body>
 
-  <nav>
-    <div class="nav-links">
-      <a href="#about">About</a>
-      <a href="#skills">Skills</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
-    </div>
-    <button id="dark-mode-toggle">Toggle Dark Mode</button>
-  </nav>
 
-  <header>
-    <div class="container">
-      <h1>Hello, I'm <span class="highlight">Leo T. Mazive</span></h1>
-      <p>A Passionate Web Developer</p>
-    </div>
-  </header>
+ <nav>
+ <a href="#top ">
+  <div class="logo-circle">
+    <span class="initial">L</span>
+    <span class="initial highlight">T</span>
+    <span class="initial">M</span>
+  </div>
+</a>
 
-  <section id="about">
-    <div class="container">
-      <h2>About Me</h2>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <button id="dark-mode-toggle">🌙</button>
+</nav>
+
+
+ <header>
+  <div class="container">
+    <h1>Hello, I'm <span class="highlight">Leo T. Mazive</span></h1>
+    <p>Full Stack Developer | FastAPI + Next.js | Passionate About Automation</p>
+    <div class="hero-buttons">
+      <a href="#projects" class="btn">See My Work</a>
+      <a href="Leo T Mazive FullStake Developer Resume.pdf" class="btn btn-secondary" download>Download CV</a>
+    </div>
+  </div>
+</header>
+
+
+<section id="about">
+  <div class="container">
+    <h2>About Me</h2>
+    <p class="about-intro">
+      Hello! I’m a passionate and dedicated Full Stack Developer with a strong focus on creating clean, responsive, and user-friendly websites. My journey into tech began with curiosity and quickly evolved into a committed pursuit of understanding how the web works—from the structure of HTML and styling with CSS to the interactivity powered by JavaScript.
+    </p>
+
+    <div id="more-text" class="about-more" style="display: none;">
       <p>
-        Hi, I'm Leo T. Mazive. I enjoy creating websites and building useful tools with Python. I like solving problems and making things that help people work faster and better.
+        I am continuously honing my skills in core web technologies while exploring modern tools like Bootstrap, Tailwind CSS, Git for version control, and frameworks such as React and Next.js to build dynamic and engaging user interfaces. Whether it’s a simple landing page or a fully responsive web application, I love turning creative ideas into seamless digital experiences. Every day, I strive to write cleaner code, build smarter layouts, and develop projects that not only function well but also look great across all devices.
       </p>
       <p>
-        I have made a payslip generator that helps companies send payslips automatically, and a job scraper that collects the latest job posts from a website. I build my projects to be simple, helpful, and easy to use.
-      </p>
-      <p>
-        I'm always learning new skills and looking for ways to improve. My goal is to grow as a developer and create things that make a real difference.
+        Beyond coding, I am passionate about solving problems, thinking critically, and transforming complex challenges into elegant, practical solutions. I pay close attention to detail and believe that continuous learning is the key to becoming an exceptional developer.
       </p>
     </div>
-  </section>
 
-  <section id="skills">
-    <div class="container">
-      <h2>Skills</h2>
-      <ul class="skills-list">
-        <li>HTML</li>
-        <li>CSS</li>
-        <li>JavaScript</li>
-        <li>Python</li>
-        <li>Selenium</li>
-        <li>pandas</li>
-        <li>Git & GitHub</li>
-        <li>Responsive Design</li>
-      </ul>
-    </div>
-  </section>
+    <button id="read-more-btn" onclick="toggleReadMore()" class="btn-readmore">Read More</button>
+  </div>
+</section>
 
-  <section id="projects">
-    <div class="container">
-      <h2>Projects</h2>
-      <div class="projects-grid">
-        <div class="project-card">
-          <h3>Payslip Generator</h3>
-          <p>Automated tool that reads employee data from Excel and generates personalized PDF payslips, then emails them to each employee. Built with Python using <code>pandas</code>, <code>reportlab</code>, and <code>smtplib</code>.</p>
-          <a href="https://github.com/Leo-Mazive-123/Payslip-Generator.git" target="_blank">View Project</a>
-        </div>
+ <section id="skills">
+  <div class="container">
+    <h2>Skills</h2>
+    <div class="skills-grid">
+      <div class="skill-category">
+        <h3>Frontend</h3>
+        <ul>
+          <li><i class="fab fa-html5"></i> HTML5</li>
+          <li><i class="fab fa-css3-alt"></i> CSS3</li>
+          <li><i class="fab fa-js"></i> JavaScript</li>
+          <li><i class="fab fa-react"></i> React</li>
+          <li><i class="fas fa-code"></i> Next.js</li>
+          <li><i class="fab fa-js-square"></i> TypeScript</li>
+          <li><i class="fas fa-wind"></i> Tailwind CSS</li>
+        </ul>
+      </div>
 
-        <div class="project-card">
-          <h3>Job Scraper</h3>
-          <p>Python-based web scraper that extracts the 10 most recent job listings from <a href="https://vacancymail.co.zw/jobs/" target="_blank">vacancymail.co.zw</a>. Saves data to CSV and automates task scheduling with <code>Selenium</code>, <code>pandas</code>, and <code>schedule</code>.</p>
-          <a href="https://github.com/Leo-Mazive-123/Job-Scraper.git" target="_blank">View Project</a>
-        </div>
+      <div class="skill-category">
+        <h3>Backend</h3>
+        <ul>
+          <li><i class="fab fa-python"></i> Python</li>
+          <li><i class="fas fa-bolt"></i> FastAPI</li>
+          <li><i class="fab fa-node-js"></i> Node.js</li>
+          <li><i class="fas fa-database"></i> SQL</li>
+          <li><i class="fas fa-shield-alt"></i> Authentication & Security</li>
+        </ul>
+      </div>
+
+      <div class="skill-category">
+        <h3>Tools & Other</h3>
+        <ul>
+          <li><i class="fab fa-git-alt"></i> Git & GitHub</li>
+          <li><i class="fas fa-server"></i> Supabase</li>
+          <li><i class="fas fa-robot"></i> Selenium</li>
+          <li><i class="fas fa-table"></i> Pandas</li>
+          <li><i class="fas fa-mobile-alt"></i> Responsive Design</li>
+          <li><i class="fas fa-cloud"></i> Vercel</li>
+          <li><i class="fas fa-pencil-ruler"></i> Figma</li>
+        </ul>
       </div>
     </div>
-  </section>
+  </div>
+</section>
+
+
+<section id="projects">
+  <div class="container">
+    <h2 class="section-title">Projects</h2>
+
+    <!-- Filter Buttons -->
+    <div class="filter-buttons">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="frontend">Frontend</button>
+      <button class="filter-btn" data-filter="backend">Backend</button>
+      <button class="filter-btn" data-filter="fullstack">Full Stack</button>
+    </div>
+
+    <!-- Projects Grid -->
+    <div class="projects-grid">
+      <!-- Project Example -->
+      <div class="project-card" data-category="frontend">
+        <h3>Song Lyrics Web Page</h3>
+         <p>A simple HTML web page showcasing song lyrics in a clean and readable format. Demonstrates HTML fundamentals and structured content creation.</p>
+        <div class="tech-stack"><span>HTML</span></div>
+        <a href="https://leo-mazive-123.github.io/Song-Lyrics-Web/" target="_blank" class="project-btn">View Project</a>
+      </div>
+
+      <div class="project-card" data-category="backend">
+        <h3>Payslip Generator</h3>
+         <p>Automated Python tool that reads employee data from Excel and generates personalized PDF payslips, then emails them. Built with <code>pandas</code>, <code>reportlab</code>, and <code>smtplib</code>.</p>
+        <div class="tech-stack"><span>Python</span><span>pandas</span><span>reportlab</span></div>
+        <a href="https://github.com/Leo-Mazive-123/Payslip-Generator.git" target="_blank" class="project-btn">View Project</a>
+      </div>
+
+      <div class="project-card" data-category="backend">
+        <h3>Job Scraper</h3>
+        <p>Web scraper that extracts latest job listings from  a website called <a href="https://vacancymail.co.zw/jobs/" target="_blank">vacancymail.co.zw</a> using <code>Selenium</code>, <code>pandas</code>, and <code>schedule</code>. Saves data to CSV.</p>
+        <div class="tech-stack"><span>Python</span><span>Selenium</span><span>pandas</span></div>
+        <a href="https://github.com/Leo-Mazive-123/Job-Scraper.git" target="_blank" class="project-btn">View Project</a>
+      </div>
+
+      <div class="project-card" data-category="frontend">
+        <h3>Stylish Remake Website</h3>
+       <p>A desktop remake of a classic website focusing on sleek UI, UX design, and functionality using modern front-end tools.</p>
+        <div class="tech-stack"><span>HTML</span><span>CSS</span></div>
+        <a href="https://leo-mazive-123.github.io/Stylish-Port/" target="_blank" class="project-btn">View Project</a>
+      </div>
+
+      <div class="project-card" data-category="frontend">
+        <h3>Bootstrap Remake Website</h3>
+        <p>A responsive Bootstrap site showcasing layout design, component integration, and front-end best practices.</p>
+        <div class="tech-stack"><span>HTML</span><span>Bootstrap</span></div>
+        <a href="https://leo-mazive-123.github.io/START-BOOTSTRAP/" target="_blank" class="project-btn">View Project</a>
+      </div>
+
+      <div class="project-card" data-category="frontend">
+        <h3>Calculator</h3>
+        <p>A simple calculator built with HTML, CSS, and JavaScript for basic arithmetic operations.</p>
+        <div class="tech-stack"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
+        <a href="https://leo-mazive-123.github.io/Calculator-Project/" target="_blank" class="project-btn">View Project</a>
+      </div>
+
+      <div class="project-card" data-category="frontend">
+        <h3>Tigzozo Media</h3>
+         <p>Photography studio design concept showcasing clean layouts and appealing visuals using HTML and CSS.</p>
+        <div class="tech-stack"><span>HTML</span><span>CSS</span></div>
+        <a href="https://leo-mazive-123.github.io/Tigzozo-Media/" target="_blank" class="project-btn">View Project</a>
+      </div>
+
+      <div class="project-card" data-category="frontend">
+        <h3>Quiz Web App</h3>
+         <p>Interactive quiz application using HTML, CSS, and JavaScript that tests user knowledge in a fun way.</p>
+        <div class="tech-stack"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
+        <a href="https://leo-mazive-123.github.io/Quiz-App-Project/" target="_blank" class="project-btn">View Project</a>
+      </div>
+
+      <div class="project-card" data-category="fullstack">
+        <h3>Bakers Inn Website</h3>
+        <p>A Next.js + Tailwind CSS bakery site with modern design and smooth navigation. Includes Products, Recipes, and Kid’s Corner pages.</p>
+        <div class="tech-stack"><span>Next.js</span><span>Tailwind CSS</span></div>
+        <a href="https://bakers-inn-project-nextjs-git-master-leo-mazives-projects.vercel.app" target="_blank" class="project-btn">View Project</a>
+      </div>
+
+     <div class="project-card" data-category="fullstack">
+        <h3>Support Ticket Classification System</h3>
+        <p>
+          A web app that allows users to submit support tickets and automatically classifies 
+          them into departments (IT, HR, Finance) using Supabase and a simple frontend model 
+          built with Next.js.
+        </p>
+        <div class="tech-stack">
+          <span>Next.js</span><span>Tailwind CSS</span><span>Supabase</span><span>Machine Learning</span>
+        </div>
+        <a href="https://support-ticket-classifier.vercel.app" target="_blank" class="project-btn">
+          View Project
+        </a>
+      </div>
+
+
+    </div>
+  </div>
+</section>
+
+
 
   <section id="contact">
-    <div class="container">
-      <h2>Contact</h2>
-      <p style="text-align: center;">Reach out via email or connect on social media.</p>
-      <div class="social-links">
-        <a href="mailto:leomazive@gmail.com">Email</a>
-        <a href="https://github.com/Leo-Mazive-123" target="_blank">GitHub</a>
-        <a href="tel:+263773950814">Phone</a>
+  <div class="container contact-container">
+    <h2>Contact Me</h2>
+    <p class="contact-intro">Have a project or idea in mind? Let's collaborate! Reach out via email, phone, or connect on social media.</p>
+    
+    <!-- Contact Cards -->
+    <div class="contact-cards">
+      <div class="contact-card">
+        <i class="fas fa-envelope"></i>
+        <h3>Email</h3>
+        <p><a href="mailto:leomazive01@gmail.com">leomazive01@gmail.com</a></p>
+      </div>
+
+      <div class="contact-card">
+        <i class="fas fa-phone-alt"></i>
+        <h3>Phone</h3>
+        <p><a href="tel:+263773950814">+263 77 395 0814</a></p>
+      </div>
+
+      <div class="contact-card">
+        <i class="fab fa-github"></i>
+        <h3>GitHub</h3>
+        <p><a href="https://github.com/Leo-Mazive-123" target="_blank">github.com/Leo-Mazive-123</a></p>
+      </div>
+
+      <div class="contact-card">
+        <i class="fab fa-linkedin"></i>
+        <h3>LinkedIn</h3>
+        <p><a href="https://www.linkedin.com/in/leo-mazive-b470a535b" target="_blank">linkedin.com/in/leo-mazive</a></p>
       </div>
     </div>
-  </section>
+
+    <!-- Contact Form -->
+    <form id="contact-form" class="contact-form">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+      <button type="submit" class="btn">Send Message</button>
+      <p id="form-status"></p>
+    </form>
 
   <footer>
-    <p>&copy; 2025 Leo T. Mazive.</p>
-  </footer>
+  <p>&copy; 2025 Leo T. Mazive.</p>
+  <div class="footer-social">
+    <a href="https://github.com/Leo-Mazive-123" target="_blank"><i class="fab fa-github"></i></a>
+    <a href="https://www.linkedin.com/in/leo-mazive-b470a535b" target="_blank"><i class="fab fa-linkedin"></i></a>
+  </div>
+</footer>
+
 
   <button id="top-btn" onclick="window.scrollTo({ top: 0, behavior: 'smooth' });">&#8679;</button>
+  <button id="down-btn" onclick="window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });">&#8681;</button>
+
+
+  
+  
 
   <script>
     const toggleBtn = document.getElementById('dark-mode-toggle');
@@ -311,5 +275,84 @@
     });
   </script>
 
+ <script>
+  function toggleReadMore() {
+    const moreText = document.getElementById('more-text');
+    const btn = document.getElementById('read-more-btn');
+
+    if (moreText.style.display === 'none') {
+      moreText.style.display = 'block';
+      btn.textContent = 'Read Less';
+    } else {
+      moreText.style.display = 'none';
+      btn.textContent = 'Read More';
+    }
+  }
+</script>
+
+<script>
+  const filterButtons = document.querySelectorAll('.filter-btn');
+  const projectCards = document.querySelectorAll('.project-card');
+
+  filterButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      // Remove active class from all buttons
+      filterButtons.forEach(btn => btn.classList.remove('active'));
+      // Add active class to clicked button
+      button.classList.add('active');
+
+      const filter = button.dataset.filter;
+
+      projectCards.forEach(card => {
+        if (filter === 'all' || card.dataset.category === filter) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  });
+</script>
+
+
+<script>
+  const form = document.getElementById('contact-form');
+  const status = document.getElementById('form-status');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const data = {
+      name: form.name.value,
+      email: form.email.value,
+      message: form.message.value
+    };
+
+    try {
+      const response = await fetch('https://formspree.io/f/xkgzlvba', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+      });
+
+      if (response.ok) {
+        status.textContent = "Message sent successfully!";
+        form.reset();
+      } else {
+        status.textContent = "Error sending message. Try again.";
+      }
+    } catch (err) {
+      status.textContent = "Network error. Please try later.";
+    }
+  });
+</script>
+
+
+
 </body>
 </html>
+
+
+
