@@ -198,7 +198,7 @@ nav a:hover {
 
 .nav-links {
   display: flex;
-  gap: 20px;
+  gap: 50px;
   align-items: center;
 }
 
@@ -213,6 +213,27 @@ nav .nav-links a {
 nav .nav-links a:hover {
   color: var(--primary);
 }
+
+
+.nav-controls {
+  display: flex;
+  align-items: center;
+  gap: 15px; /* space between toggle and hamburger */
+}
+
+#hamburger {
+  display: none; /* keep hidden by default, only show on mobile */
+  font-size: 1.8rem;
+  cursor: pointer;
+  user-select: none;
+  background: none;
+  border: none;
+}
+
+#dark-mode-toggle {
+  order: -1; /* ensure toggle appears to the left of hamburger */
+}
+
 
 
     #dark-mode-toggle {
@@ -643,11 +664,6 @@ footer p {
 }
 
 
-footer {
-  position: sticky;
-  bottom: 0;
-}
-
 
 .footer-social {
   margin-top: 0.5rem;
@@ -701,57 +717,32 @@ footer {
 }
 
 
-/* Navbar layout */
-nav {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 1rem;
-  position: fixed;
-}
 
-/* Controls container */
-.nav-controls {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  
-}
-
-/* Hamburger Button */
-#hamburger {
-  display: none;
-  background: none;
-  border: none;
-  font-size: 1.5rem;
-  cursor: pointer;
-  color: var(--text-color, #333);
-}
-
-/* Responsive Navbar */
 @media screen and (max-width: 768px) {
   .nav-links {
-    display: none;
+    display: none; /* keep links hidden initially */
     flex-direction: column;
-    background-color: var(--section-bg, #f0f4f8);
     position: absolute;
     top: 70px;
     right: 0;
     width: 200px;
+    background-color: var(--section-bg, #f0f4f8);
     border-radius: 8px;
     box-shadow: 0 8px 20px rgba(0,0,0,0.1);
     padding: 1rem;
     z-index: 100;
   }
 
-  .nav-links a {
-    margin: 0.5rem 0;
+  #hamburger {
+    display: block; /* show hamburger on mobile */
   }
 
-  #hamburger {
-    display: block;
+  .nav-controls {
+    margin-left: auto; /* push toggle+hamburger to the right end */
   }
 }
+
+
 
 
 /* Mobile Styles (under 768px) */
@@ -780,36 +771,8 @@ nav {
     text-align: center;
   }
 
-    .nav-links {
-    flex-direction: row;       /* keep nav links in a row */
-    gap: 15px;
-    flex-wrap: wrap;           /* allow wrapping if too many links */
-  }
 
-
-   nav .nav-links a {
-    font-size: 1rem;
-    color: var(--text);
-    padding: 6px 10px;
-    white-space: nowrap;       /* prevent link text from breaking */
-    transition: color 0.3s ease;
-  }
-
-    nav {
-    flex-direction: row;          /* keep nav items in a row */
-    align-items: center;
-    justify-content: space-between; /* space between logo and nav links */
-    padding: 1rem 5%;
-    background-color: var(--bg);
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  }
-
-    nav .nav-links a:hover,
-  nav .nav-links a:focus {
-    color: var(--primary);
-    outline: none;
-  }
-
+ 
 
   
   .project-card,
@@ -859,4 +822,15 @@ nav {
   }
 }
 
+@media screen and (min-width: 769px) {
+  .nav-links {
+    display: flex !important;
+    position: static; /* reset absolute positioning from mobile */
+    flex-direction: row;
+    background: none;
+    width: auto;
+    padding: 0;
+    box-shadow: none;
+  }
+}
 
