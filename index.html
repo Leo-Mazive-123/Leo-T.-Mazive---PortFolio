@@ -15,22 +15,28 @@
 <body>
 
 
- <nav>
- <a href="#top ">
-  <div class="logo-circle">
-    <span class="initial">L</span>
-    <span class="initial highlight">T</span>
-    <span class="initial">M</span>
-  </div>
-</a>
+<nav>
+  <a href="#top">
+    <div class="logo-circle">
+      <span class="initial">L</span>
+      <span class="initial highlight">T</span>
+      <span class="initial">M</span>
+    </div>
+  </a>
 
-  <div class="nav-links">
+  <div class="nav-links" id="nav-links">
     <a href="#about">About</a>
     <a href="#skills">Skills</a>
     <a href="#projects">Projects</a>
     <a href="#contact">Contact</a>
   </div>
-  <button id="dark-mode-toggle">🌙</button>
+
+  <div class="nav-controls">
+    <button id="dark-mode-toggle">🌙</button>
+    <button id="hamburger">
+      <i class="fas fa-bars"></i>
+    </button>
+  </div>
 </nav>
 
 
@@ -264,8 +270,16 @@
   <button id="top-btn" onclick="window.scrollTo({ top: 0, behavior: 'smooth' });">&#8679;</button>
   <button id="down-btn" onclick="window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });">&#8681;</button>
 
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('nav-links');
 
-  
+  hamburger.addEventListener('click', () => {
+    navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+  });
+</script>
+
+
   
 
   <script>

@@ -97,25 +97,10 @@
       padding: 40px 0;
     }
 
-  /* nav {
-  background-color: var(--bg);
-  position: fixed;
-  top: 0;
-  right: 0;
-  left: 0;
-  padding: 1rem 5%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center; 
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  gap: 1rem; 
-} */
 
 nav {
   position: fixed;
+  min-height: 80px; 
   top: 0;
   left: 0;
   right: 0;
@@ -380,7 +365,7 @@ nav .nav-links a:hover {
     outline: none;
     box-shadow: 0 6px 12px rgba(106, 17, 203, 0.6);
 
-} */
+} 
 
 
 
@@ -470,6 +455,7 @@ nav .nav-links a:hover {
 
 /* Contact Cards */
 .contact-cards {
+  
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 1.5rem;
@@ -587,6 +573,52 @@ body.dark-mode {
   color: #fff;
 }
 
+
+
+
+/* =====================
+   Contact Section - Light Mode Styling
+===================== */
+body:not(.dark-mode) .contact-container {
+  background-color: #f0f4f8; /* soft light blue/gray */
+  color: #333; /* dark text for readability */
+}
+
+body:not(.dark-mode) .contact-card {
+  background-color: #fcfcfce5; /* white cards */
+  color: #333; /* text color inside cards */
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+body:not(.dark-mode) .contact-card a {
+  color: #2575fc; /* links color */
+}
+
+body:not(.dark-mode) .contact-card i {
+  color: #2575fc; /* icon color */
+}
+
+body:not(.dark-mode) .contact-form input,
+body:not(.dark-mode) .contact-form textarea {
+  background-color: #fff; /* bright input fields */
+  color: #333; /* text color inside inputs */
+  border: 1px solid #ccc;
+}
+
+body:not(.dark-mode) .contact-form input::placeholder,
+body:not(.dark-mode) .contact-form textarea::placeholder {
+  color: #888; /* subtle placeholder color */
+}
+
+body:not(.dark-mode) .contact-form button.btn {
+  background-color: #2575fc; /* primary blue button */
+  color: #fff;
+}
+
+body:not(.dark-mode) .contact-form button.btn:hover {
+  background-color: #6a11cb; /* accent on hover */
+}
+
    
 
    
@@ -666,6 +698,59 @@ footer {
 
 #down-btn:hover {
   background: var(--accent);
+}
+
+
+/* Navbar layout */
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1rem;
+  position: fixed;
+}
+
+/* Controls container */
+.nav-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  
+}
+
+/* Hamburger Button */
+#hamburger {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--text-color, #333);
+}
+
+/* Responsive Navbar */
+@media screen and (max-width: 768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    background-color: var(--section-bg, #f0f4f8);
+    position: absolute;
+    top: 70px;
+    right: 0;
+    width: 200px;
+    border-radius: 8px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    padding: 1rem;
+    z-index: 100;
+  }
+
+  .nav-links a {
+    margin: 0.5rem 0;
+  }
+
+  #hamburger {
+    display: block;
+  }
 }
 
 
