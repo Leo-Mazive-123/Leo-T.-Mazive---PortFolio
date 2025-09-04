@@ -38,6 +38,7 @@
       line-height: 1.6;
       transition: background-color 0.3s, color 0.3s;
     }
+    
 
     #about h2 {
     text-align: center;
@@ -90,12 +91,22 @@
     box-shadow: 0 6px 12px rgba(106, 17, 203, 0.6);
   }
 
-    .container {
-      width: 90%;
+.headerr {
+  height: 100vh;             /* Full viewport height */
+  width: 100%;               /* Full width */
+  display: grid;             /* Use grid for centering */
+  place-items: center;       /* Center content vertically and horizontally */
+  text-align: center;        /* Center text */
+
+}
+
+.container {
+      width: 100%;
       max-width: 1100px;
       margin: auto;
-      padding: 40px 0;
-    }
+      padding: 50px 0;
+}
+
 
 
 nav {
@@ -104,7 +115,7 @@ nav {
   top: 0;
   left: 0;
   right: 0;
-  background-color: var(--bg);
+  background-color: rgb(18, 42, 73);
   backdrop-filter: blur(10px); /* glass blur effect */
   padding: 1rem 5%;
   display: flex;
@@ -203,10 +214,25 @@ nav a:hover {
 }
 
 /* Keep your existing nav-links a styling */
+
+.nav-links a {
+  color: var(--text-color);
+  text-decoration: none;
+  padding: 8px 12px;
+  
+}
+
+.nav-links a.active {
+  color: var(--primary);          /* highlight color */
+  border-bottom: 2px solid var(--primary);
+  font-weight: bold;
+}
+
+
 nav .nav-links a {
   margin: 0;
   text-decoration: none;
-  color: var(--text);
+  color: white;
   font-weight: 600;
 }
 
@@ -654,7 +680,7 @@ body:not(.dark-mode) .contact-form button.btn:hover {
 ===================== */
 footer {
   width: 100%;
-  background-color: var(--highlight-color, #4a90e2); /* matching your highlight color */
+  background-color:  rgb(18, 42, 73);; /* matching your highlight color */
   color: #fff;
   text-align: center;
   padding: 1.5rem 0;

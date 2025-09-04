@@ -15,7 +15,7 @@
 <body>
 
 
-<nav>
+<nav class="navv">
   <a href="#top">
     <div class="logo-circle">
       <span class="initial">L</span>
@@ -39,17 +39,20 @@
   </div>
 </nav>
 
+<section id="home">
+      <header class="headerr">
+        <div class="container">
+          <h1>Hello, I'm <span class="highlight">Leo T. Mazive</span></h1>
+          <p>Full Stack Developer | FastAPI + Next.js | Passionate About Automation</p>
+          <div class="hero-buttons">
+            <a href="#projects" class="btn">See My Work</a>
+            <a href="Leo T Mazive FullStake Developer Resume.pdf" class="btn btn-secondary" download>Download CV</a>
+          </div>
+        </div>
+      </header>
 
- <header>
-  <div class="container">
-    <h1>Hello, I'm <span class="highlight">Leo T. Mazive</span></h1>
-    <p>Full Stack Developer | FastAPI + Next.js | Passionate About Automation</p>
-    <div class="hero-buttons">
-      <a href="#projects" class="btn">See My Work</a>
-      <a href="Leo T Mazive FullStake Developer Resume.pdf" class="btn btn-secondary" download>Download CV</a>
-    </div>
-  </div>
-</header>
+</section>
+
 
 
 <section id="about">
@@ -210,6 +213,20 @@
         </a>
       </div>
 
+      <div class="project-card" data-category="fullstack">
+        <h3>Weather Dashboard</h3>
+        <p>
+          A responsive weather dashboard built with Next.js, TypeScript, and OpenWeather API. Displays real-time weather updates by city with a clean UI.
+        </p>
+        <div class="tech-stack">
+          <span>Next.js</span><span>TypeScript</span><span>Tailwind CSS</span><span>OpenWeather API</span>
+        </div>
+        <a href="https://weather-dashboard-seven-silk.vercel.app" target="_blank" class="project-btn">
+          View Project
+        </a>
+      </div>
+
+    
 
     </div>
   </div>
@@ -217,7 +234,7 @@
 
 
 
-  <section id="contact">
+<section id="contact">
   <div class="container contact-container">
     <h2>Contact Me</h2>
     <p class="contact-intro">Have a project or idea in mind? Let's collaborate! Reach out via email, phone, or connect on social media.</p>
@@ -257,8 +274,9 @@
       <button type="submit" class="btn">Send Message</button>
       <p id="form-status"></p>
     </form>
+</section>
 
-  <footer>
+<footer>
   <p>&copy; 2025 Leo T. Mazive.</p>
   <div class="footer-social">
     <a href="https://github.com/Leo-Mazive-123" target="_blank"><i class="fab fa-github"></i></a>
@@ -266,13 +284,12 @@
   </div>
 </footer>
 
-
   <button id="top-btn" onclick="window.scrollTo({ top: 0, behavior: 'smooth' });">&#8679;</button>
   <button id="down-btn" onclick="window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });">&#8681;</button>
 
 <script>
   const hamburger = document.getElementById('hamburger');
-  const navLinks = document.getElementById('nav-links');
+  // const navLinks = document.getElementById('nav-links');
   const darkToggle = document.getElementById('dark-mode-toggle');
   darkToggle.addEventListener('click', () => {
   document.body.classList.toggle('dark');
@@ -366,6 +383,52 @@
     }
   });
 </script>
+
+
+<script>
+  // Select all sections and nav links
+  const sections = document.querySelectorAll("section");
+  const navLinks = document.querySelectorAll(".nav-links a");
+
+  // Function to remove 'active' from all links
+  function removeActive() {
+    navLinks.forEach(link => link.classList.remove("active"));
+  }
+
+  // Function to add 'active' class to current section link
+  function activateLink() {
+    let scrollPos = window.scrollY + 200; // offset for fixed nav
+    sections.forEach(section => {
+      if (scrollPos >= section.offsetTop && scrollPos < section.offsetTop + section.offsetHeight) {
+        const id = section.getAttribute("id");
+        removeActive();
+        const activeLink = document.querySelector(`.nav-links a[href="#${id}"]`);
+        if (activeLink) activeLink.classList.add("active");
+      }
+    });
+  }
+
+  window.addEventListener("scroll", activateLink);
+
+  // Smooth scrolling when nav links are clicked
+  navLinks.forEach(link => {
+    link.addEventListener("click", e => {
+      e.preventDefault();
+      const targetId = link.getAttribute("href").slice(1);
+      const targetSection = document.getElementById(targetId);
+      if (targetSection) {
+        window.scrollTo({
+          top: targetSection.offsetTop - 50, // adjust for nav height
+          behavior: "smooth"
+        });
+      }
+    });
+  });
+
+  // Highlight the first section on page load
+  window.addEventListener("load", activateLink);
+</script>
+
 
 
 
