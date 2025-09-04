@@ -211,6 +211,7 @@ nav a:hover {
   display: flex;
   gap: 50px;
   align-items: center;
+  
 }
 
 /* Keep your existing nav-links a styling */
@@ -266,6 +267,9 @@ body.dark #hamburger i {
   color: white;
 }
 
+body.dark-mode #navlinks a {
+  color: white;          /* Dark mode */
+}
 
 
     #dark-mode-toggle {
@@ -680,7 +684,7 @@ body:not(.dark-mode) .contact-form button.btn:hover {
 ===================== */
 footer {
   width: 100%;
-  background-color:  rgb(18, 42, 73);; /* matching your highlight color */
+  background-color: rgb(18, 42, 73); /* matching your highlight color */
   color: #fff;
   text-align: center;
   padding: 1.5rem 0;
@@ -749,6 +753,34 @@ footer p {
 }
 
 
+/* Mobile nav (hidden by default) */
+@media (max-width: 768px) {
+  #navlinks {
+    display: none;
+    flex-direction: column; /* vertical stack on mobile */
+    position: absolute;
+    top: 60px;
+    right: 0;
+    
+    padding: 1rem;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  }
+
+  #navlinks.open {
+    display: flex; /* show menu when hamburger clicked */
+  }
+}
+
+/* Hamburger link colors */
+#navlinks a {
+  color: white; /* light mode */
+}
+
+body.dark-mode #navlinks a {
+  color: white; /* dark mode */
+}
+
+
 
 @media screen and (max-width: 768px) {
   .nav-links {
@@ -758,7 +790,7 @@ footer p {
     top: 70px;
     right: 0;
     width: 200px;
-    background-color: var(--section-bg, #f0f4f8);
+    background-color: var(--bg-color);
     border-radius: 8px;
     box-shadow: 0 8px 20px rgba(0,0,0,0.1);
     padding: 1rem;

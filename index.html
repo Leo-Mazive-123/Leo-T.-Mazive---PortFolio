@@ -15,7 +15,7 @@
 <body>
 
 
-<nav class="navv">
+<nav>
   <a href="#top">
     <div class="logo-circle">
       <span class="initial">L</span>
@@ -24,7 +24,7 @@
     </div>
   </a>
 
-  <div class="nav-links" id="nav-links">
+  <div class="nav-links" id="navlinks">
     <a href="#about">About</a>
     <a href="#skills">Skills</a>
     <a href="#projects">Projects</a>
@@ -288,29 +288,24 @@
   <button id="down-btn" onclick="window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });">&#8681;</button>
 
 <script>
-  const hamburger = document.getElementById('hamburger');
-  // const navLinks = document.getElementById('nav-links');
-  const darkToggle = document.getElementById('dark-mode-toggle');
-  darkToggle.addEventListener('click', () => {
-  document.body.classList.toggle('dark');
+  // Hamburger menu
+  // Hamburger menu
+const hamburger = document.getElementById('hamburger');
+const navContainer = document.getElementById('navlinks');
+
+hamburger.addEventListener('click', () => {
+  // toggle a class instead of inline styles
+  navContainer.classList.toggle('open');
 });
 
-  hamburger.addEventListener('click', () => {
-    navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+
+  // Dark mode toggle
+  const toggleBtn = document.getElementById('dark-mode-toggle');
+  toggleBtn.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
   });
-</script>
 
-
-  
-
-  <script>
-    const toggleBtn = document.getElementById('dark-mode-toggle');
-    toggleBtn.addEventListener('click', () => {
-      document.body.classList.toggle('dark-mode');
-    });
-  </script>
-
- <script>
+  // Read more toggle
   function toggleReadMore() {
     const moreText = document.getElementById('more-text');
     const btn = document.getElementById('read-more-btn');
@@ -323,17 +318,14 @@
       btn.textContent = 'Read More';
     }
   }
-</script>
 
-<script>
+  // Project filtering
   const filterButtons = document.querySelectorAll('.filter-btn');
   const projectCards = document.querySelectorAll('.project-card');
 
   filterButtons.forEach(button => {
     button.addEventListener('click', () => {
-      // Remove active class from all buttons
       filterButtons.forEach(btn => btn.classList.remove('active'));
-      // Add active class to clicked button
       button.classList.add('active');
 
       const filter = button.dataset.filter;
@@ -347,10 +339,8 @@
       });
     });
   });
-</script>
 
-
-<script>
+  // Contact form submission
   const form = document.getElementById('contact-form');
   const status = document.getElementById('form-status');
 
@@ -382,20 +372,15 @@
       status.textContent = "Network error. Please try later.";
     }
   });
-</script>
 
-
-<script>
-  // Select all sections and nav links
+  // Section highlighting & smooth scrolling
   const sections = document.querySelectorAll("section");
-  const navLinks = document.querySelectorAll(".nav-links a");
+  const navLinksItems = document.querySelectorAll(".nav-links a"); // renamed from navLinks
 
-  // Function to remove 'active' from all links
   function removeActive() {
-    navLinks.forEach(link => link.classList.remove("active"));
+    navLinksItems.forEach(link => link.classList.remove("active"));
   }
 
-  // Function to add 'active' class to current section link
   function activateLink() {
     let scrollPos = window.scrollY + 200; // offset for fixed nav
     sections.forEach(section => {
@@ -408,27 +393,23 @@
     });
   }
 
-  window.addEventListener("scroll", activateLink);
-
-  // Smooth scrolling when nav links are clicked
-  navLinks.forEach(link => {
+  navLinksItems.forEach(link => {
     link.addEventListener("click", e => {
       e.preventDefault();
       const targetId = link.getAttribute("href").slice(1);
       const targetSection = document.getElementById(targetId);
       if (targetSection) {
         window.scrollTo({
-          top: targetSection.offsetTop - 50, // adjust for nav height
+          top: targetSection.offsetTop - 50,
           behavior: "smooth"
         });
       }
     });
   });
 
-  // Highlight the first section on page load
+  window.addEventListener("scroll", activateLink);
   window.addEventListener("load", activateLink);
 </script>
-
 
 
 
